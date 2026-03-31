@@ -11,7 +11,6 @@ The Solution
 Phase 1: Fixing Future Indices (Permanent Fix)
 We need to create a high-priority index template to force manager.name back to the keyword type. Run this in the Wazuh Dashboard > Dev Tools:
 
-JSON
 PUT /_index_template/wazuh_fix_manager
 {
   "index_patterns": ["wazuh-alerts-4.x-*"],
@@ -41,7 +40,6 @@ Phase 2: Fixing Current/Existing Indices
 
 The template above only affects new indices. For indices that already exist and show the error (e.g., wazuh-alerts-4.x-2026.01.05), you must enable fielddata as a temporary bridge:
 
-JSON
 PUT /wazuh-alerts-*/_mapping
 {
   "properties": {
